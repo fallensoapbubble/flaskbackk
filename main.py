@@ -22,7 +22,6 @@ DATA_FILE = 'sample_demand_data.csv'
 # Initialize model and label encoders
 model = None
 label_encoders = {}
-accuracy_metrics = {}
 
 
 
@@ -61,18 +60,7 @@ try:
     # Make predictions on the test set
     y_pred = model.predict(X_test)
 
-    # Evaluate the model
-    mse = mean_squared_error(y_test, y_pred)
-    r2 = r2_score(y_test, y_pred)
-
-    accuracy_metrics = {
-        'mean_squared_error': mse,
-        'r_squared': r2
-    }
-
-    print("Model trained and accuracy metrics calculated successfully.")
-    print(f"Mean Squared Error (MSE): {mse:.2f}")
-    print(f"R-squared (R2): {r2:.2f}")
+   
 
 except FileNotFoundError:
     print(f"Error: Data file '{DATA_FILE}' not found. Please provide the correct file path.")
